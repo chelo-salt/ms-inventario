@@ -54,7 +54,7 @@ ms-inventario/
 Filtra y lista todos los artículos deportivos que pertenecen a un recinto específico.
 
 * **Método:** `GET`
-* **URL:** `http://localhost:8081/api/v1/inventario/recinto/{idRecinto}`
+* **URL:** `http://localhost:8087/api/v1/inventario/recinto/{idRecinto}`
 * **Seguridad:** 🔒 Requiere Token JWT válido en la cabecera.
 
 ---
@@ -63,7 +63,7 @@ Filtra y lista todos los artículos deportivos que pertenecen a un recinto espec
 Agrega nuevos artículos (ej: Balones, chalecos) o actualiza precios y stock base.
 
 * **Método:** `POST`
-* **URL:** `http://localhost:8081/api/v1/inventario`
+* **URL:** `http://localhost:8087/api/v1/inventario`
 * **Seguridad:** 🛡️ Restringido exclusivamente a usuarios con rol ADMIN (`@PreAuthorize("hasRole('ADMIN')")`).
 
 **📥 JSON Request:**
@@ -79,7 +79,7 @@ Agrega nuevos artículos (ej: Balones, chalecos) o actualiza precios y stock bas
 ### 3. Asignar / Alquilar Inventario (Consumido por ms-reservas)
 Endpoint síncrono que valida el stock de múltiples artículos en bloque. Si hay disponibilidad, descuenta del stock disponible y calcula el costo extra acumulado.
 
-URL: POST http://localhost:8081/api/v1/inventario/asignar
+URL: POST http://localhost:8087/api/v1/inventario/asignar
 
 Seguridad: 🔓 Acceso liberado de forma interna (permitAll()), validado por lógica de negocio.
 
@@ -119,7 +119,7 @@ Seguridad: 🔓 Acceso liberado de forma interna (permitAll()), validado por ló
 ### 4. Liberar Inventario
 Devuelve la cantidad de artículos prestados al stock disponible una vez concluido el bloque de juego o si se cancela la reserva.
 
-URL: POST http://localhost:8081/api/v1/inventario/liberar
+URL: POST http://localhost:8087/api/v1/inventario/liberar
 
 Seguridad: 🔓 Acceso liberado de forma interna (permitAll()).
 
