@@ -1,0 +1,26 @@
+services:
+  mysql-inventario:
+    image: 'mysql:latest'
+    container_name: 'MS-inventario_bd'
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${DB_NAME:-db_inventario}
+      MYSQL_USER: ${DB_USER:-user_dev}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-dev_password}
+    ports:
+      - '3317:3306'
+    volumes:
+      - ./mysql_inventario_data:/var/lib/mysql
+
+  phpmyadmin-inventario:
+    image: phpmyadmin/phpmyadmin
+    container_name: MS_Inventario_Gui
+    depends_on:
+      - mysql-inventario
+    environment:
+      PMA_HOST: mysql-inventario
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+    ports:
+      - '9017:80'

@@ -31,3 +31,18 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Archivos de configuración del Sistema y del Entorno ###
+.env
+.env.local
+*.properties.local
+
+### Docker & Bases de Datos Locales ###
+# Ignora las carpetas de datos que genera Docker Compose para MySQL
+mysql_data/
+mysql_inventario_data/
+mysql_*/
+
+### Archivos del Sistema Operativo ###
+.DS_Store
+Thumbs.db
